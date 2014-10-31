@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	session_start ();
 	if (isset($_SESSION['login']) && isset($_SESSION['fil']))
 	{
@@ -34,7 +34,8 @@
 					if($ligne != PHP_EOL)
 					{
 						$liste = explode(';',$ligne);
-						echo("<img src='pictures/".trim($liste[1]).".jpg'/><p onclick=\"showConv('".$liste[0]."')\">".$liste[0]."</p><br/>");
+						if (isset($liste[1]) && isset($liste[0]))
+							echo("<img src='pictures/".trim($liste[1]).".jpg'/><p onclick=\"showConv('".$liste[0]."')\">".$liste[0]."</p><br/>");
 					}
 				} while (!feof($fp));
 			?>
