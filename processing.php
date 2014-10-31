@@ -4,7 +4,7 @@
 		$log = $_POST["login"];
 		$fil = $_POST["fil"];
 		$result = checkLog($log, $fil);
-		if ($result != false)
+		if ($result != 'err')
 		{
 			$log = $result;
 			if(isset($_POST["cookie"]) && $_POST["cookie"] == "true" )
