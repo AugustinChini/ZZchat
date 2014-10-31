@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -32,12 +32,12 @@
             </p>
             <p>
     		   Représentez votre filière :<br />
-    		   <input type="radio" name="fil" value="f1" <?php if($liste[1] == "f1"){echo 'checked="checked"';} ?> id="f1id" /> <label for="f1"><img alt="logo F1" src="pictures/f1.jpg"/></label>
-    		   <input type="radio" name="fil" value="f2" <?php if($liste[1] == "f2"){echo 'checked="checked"';} ?> id="f2id" /> <label for="f2"><img alt="logo F1" src="pictures/f2.jpg"/></label>
-               <input type="radio" name="fil" value="f3" <?php if($liste[1] == "f3"){echo 'checked="checked"';} ?> id="f3id" /> <label for="f3"><img alt="logo F1" src="pictures/f3.jpg"/></label><br />
-               <input type="radio" name="fil" value="f4" <?php if($liste[1] == "f4"){echo 'checked="checked"';} ?> id="f4id" /> <label for="f4"><img alt="logo F1" src="pictures/f4.jpg"/></label>
-               <input type="radio" name="fil" value="f5" <?php if($liste[1] == "f5"){echo 'checked="checked"';} ?> id="f5id" /> <label for="f5"><img alt="logo F1" src="pictures/f5.jpg"/></label>
-               <input type="radio" name="fil" value="other" <?php if($liste[1] == "other"){echo 'checked="checked"';} ?> id="otherid" /> <label for="other"><img alt="logo F1" src="pictures/other.jpg"/></label>
+    		   <input type="radio" name="fil" value="f1" <?php if(isset($liste) && $liste[1] == "f1"){echo 'checked="checked"';} ?> id="f1id" /> <label for="f1"><img alt="logo F1" src="pictures/f1.jpg"/></label>
+    		   <input type="radio" name="fil" value="f2" <?php if(isset($liste) && $liste[1] == "f2"){echo 'checked="checked"';} ?> id="f2id" /> <label for="f2"><img alt="logo F1" src="pictures/f2.jpg"/></label>
+               <input type="radio" name="fil" value="f3" <?php if(isset($liste) && $liste[1] == "f3"){echo 'checked="checked"';} ?> id="f3id" /> <label for="f3"><img alt="logo F1" src="pictures/f3.jpg"/></label><br />
+               <input type="radio" name="fil" value="f4" <?php if(isset($liste) && $liste[1] == "f4"){echo 'checked="checked"';} ?> id="f4id" /> <label for="f4"><img alt="logo F1" src="pictures/f4.jpg"/></label>
+               <input type="radio" name="fil" value="f5" <?php if(isset($liste) && $liste[1] == "f5"){echo 'checked="checked"';} ?> id="f5id" /> <label for="f5"><img alt="logo F1" src="pictures/f5.jpg"/></label>
+               <input type="radio" name="fil" value="other" <?php if(isset($liste) && $liste[1] == "other"){echo 'checked="checked"';} ?> id="otherid" /> <label for="other"><img alt="logo F1" src="pictures/other.jpg"/></label>
                <center style="margin-top: 5px; font-size:9px;">(Other pour les invités)</center>
    			</p>
 			<p>
