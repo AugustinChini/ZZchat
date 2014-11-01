@@ -19,6 +19,18 @@ input, textarea{
 	border-radius: 4px;
 }
 
+#logInput
+{
+	float: right;
+    margin-right: 50px;
+    margin-top: -20px;
+}
+
+#logTxt
+{
+	margin-left: 64px;
+}
+
 #lang
 {
 	position: absolute;
@@ -34,6 +46,11 @@ input, textarea{
 {
 	opacity: 0.5;
 	cursor: pointer;
+}
+
+#filTxt
+{
+	margin-left: 61px;
 }
 
 #verticalBlock
@@ -61,12 +78,12 @@ input, textarea{
 #loginBlock p 
 {
 	margin: 0px;
-	margin-top: 30px;
+	margin-top: 25px;
 	text-align: center;
 }
 
 #f1id, #f4id
 {
-	margin-top: 30px;
-	margin-left: -10px;
+    margin-left: 76px;
+    margin-top: 23px;
 }
