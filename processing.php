@@ -45,7 +45,7 @@
 		}
 		else 
 		{
-			echo("<p>invalid password  :<br/>- check if your input isn't empty<br/>- Your login must have a size between 3 and 15 character<br/>- The ISIMA option is mandatory</p>");
+			echo("<h1>Form error :<br/>- check if your input isn't empty<br/>- Your login must have a size between 3 and 15 character<br/>- The ISIMA option is mandatory</h1>");
 			fclose($fp);
 			header('Refresh:3; url=index.php');
 		}
