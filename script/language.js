@@ -1,12 +1,25 @@
 function langChange(pg, lang)
 {	
+	var XML_Path = "SettingFiles/FR.xml";
 	if(pg == "index")
 	{
 		var divList = new Array("logTxt","cookieTxt","filTxt","otherTxt");
+		if(lang == "EN")
+		{
+			XML_Path = "SettingFiles/EN.xml";
+		}
 	}
 	else if(pg == "home")
 	{
-		
+		var divList = new Array("onlineTxt","title");
+		if(lang == "FR")
+		{
+			XML_Path = "SettingFiles/FR_home.xml";
+		}
+		else
+		{
+			XML_Path = "SettingFiles/EN_home.xml";
+		}
 	}
 	else
 	{
@@ -59,12 +72,15 @@ function langChange(pg, lang)
 						storing = document.getElementById(divList[i]);
 						storing.innerHTML = element.firstChild.data;
 					}
-					element = doc.getElementsByTagName('txt').item(i);
-					storing = document.getElementById(divList[i]);
-					document.getElementById('submitFrom').value= element.firstChild.data;
-					element = doc.getElementsByTagName('txt').item(i+1);
-					storing = document.getElementById(divList[i+1]);
-					document.getElementById('resetFrom').value= element.firstChild.data; 
+					if(pg == "index")
+					{
+						element = doc.getElementsByTagName('txt').item(i);
+						storing = document.getElementById(divList[i]);
+						document.getElementById('submitFrom').value= element.firstChild.data;
+						element = doc.getElementsByTagName('txt').item(i+1);
+						storing = document.getElementById(divList[i+1]);
+						document.getElementById('resetFrom').value= element.firstChild.data; 
+					}
 				}	
 				else	
 				{
@@ -72,15 +88,7 @@ function langChange(pg, lang)
 				}	
 			} 
 		}; 
-		if(lang == "FR")
-		{
-			req.open("GET", "SettingFiles/FR.xml", true);
-		}
-		else
-		{
-			req.open("GET", "SettingFiles/EN.xml", true);
-		}
-		 
+		req.open("GET", XML_Path, true);
 		req.send(null);
 		
 }		

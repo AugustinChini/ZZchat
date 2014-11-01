@@ -4,9 +4,9 @@ $(document).ready(function ()
 {
 	$("#conv1").hide();
 	$("#conv1").draggable();
-	$("#onlineBloc p").fitText(0.9);
-	$("#onlineBloc h2").fitText(1.2);
-	$("#chatRoom h1").fitText(1.5);
+	$("#onlineBloc p").fitText(0.7);
+	$("#onlineTxt").fitText(1);
+	$("#title").fitText(1.5);
 	$("#textPriv p").fitText(1.5);
 	//---start animation--//
 	$("#verticalBlock").animate({height: 50},700); 

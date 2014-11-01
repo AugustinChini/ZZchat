@@ -20,11 +20,12 @@
 		<script type="text/javascript" src="script/jquery-ui-1.10.0.custom.js"></script>
 		<script type="text/javascript" src="script/scriptHome.js"></script>
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
+		<script type="text/javascript" src="script/language.js"></script>
     </head>
     <body>
-    	<div id="lang"><img alt="English language" src="pictures/en.jpg" /> <img alt="Langage Francais" src="pictures/fr.jpg" /> <a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a></div>
+    	<div id="lang"><img alt="English language" onclick="langChange('home', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('home', 'FR')" src="pictures/fr.jpg" /> <a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a></div>
 		<div id="onlineBloc">
-		<center><h2 style="margin:0; margin-bottom: 10px;">Online ZZs :</h2></center>
+		<center><div id="onlineTxt" >ZZ en ligne :</div></center>
 			<?php
 				$fichier = 'SettingFiles/userSettings.txt';
 				$fp = fopen($fichier, 'r+');			
@@ -40,7 +41,7 @@
 				} while (!feof($fp));
 			?>
 		</div>
-        <div id="chatRoom"><center><h1 style="margin:0px;">Chat Room :</h1></center></div>
+        <div id="chatRoom"><center><div id="title" style="margin:0px;">Salon de discution :</title></center></div>
         <div id="textChat">
         	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla gravida dapibus velit posuere mattis. Nullam efficitur ultricies nunc ut porta. Aliquam malesuada consequat diam et facilisis. Cras aliquam auctor hendrerit. Fusce tincidunt, mauris at vestibulum sagittis.</p>
             <br />
