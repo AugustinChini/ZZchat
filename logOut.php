@@ -1,7 +1,6 @@
 <?php
 
 	$log = $_GET["log"];
-	//we start to seek the ligne number of the login
 	$fichier = 'SettingFiles/userSettings.txt';
 	$i = 0;
 	$bool = 0;

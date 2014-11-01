@@ -1,6 +1,0 @@
-#FR#
-Votre login :
-Représentez votre filière :
-(Other pour les invités)
-Connexion
-Annuler

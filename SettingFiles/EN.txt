@@ -1,6 +1,0 @@
-#EN#
-Login :
-Show who your are :
-(Other for gests)
-Submit
-Cancel
