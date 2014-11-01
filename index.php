@@ -10,39 +10,40 @@
 		<script type="text/javascript" src="script/jquery-ui-1.10.0.custom.js"></script>
 		<script type="text/javascript" src="script/script.js"></script>
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
+		<script type="text/javascript" src="script/language.js"></script>
     </head>
     <body>
-    <div id="lang"><img alt="English language" src="pictures/en.jpg" /> <img alt="Langage Francais" src="pictures/fr.jpg" /></div>
+    <div id="lang"><img alt="English language" onclick="langChange('index', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('index', 'FR')"  src="pictures/fr.jpg" /></div>
     <div id="loginBlock">
     	<img alt="logo ZZChat" src="pictures/logo.png" />
     	<form id="loginFrom" action="processing.php" method="post">
 			<p>
-            	<p>Votre login : 
+            	<p><div id="logTxt">Pseudo  :</div>
                 	<?php
 						$cookie_name = "ZZchat";
 						if(isset($_COOKIE[$cookie_name])) {
 							$liste = explode(';',$_COOKIE[$cookie_name]);
-							echo "<input size='20' type='text' name='login' value='" . $liste[0] . "'/></p>";
+							echo "<input id='logInput' size='20' type='text' name='login' value='" . $liste[0] . "'/></p>";
 						} else {
-							echo "<input size='20' type='text' name='login'/></p>";
+							echo "<input id='logInput' size='20' type='text' name='login'/></p>";
 						}
                     ?> 
-                <p style="margin-top:7px; font-size:13px;"><input type="checkbox" name="cookie" value="true" > Se souvenir de moi</p>
+                <input style="margin-left: 95px; margin-top: -36px;" type="checkbox" name="cookie" value="true" /><p id="cookieTxt" style="margin-top:7px; font-size:13px;"> Se souvenir de moi</p>
                 
             </p>
             <p>
-    		   Représentez votre filière :<br />
-    		   <input type="radio" name="fil" value="f1" <?php if(isset($liste) && $liste[1] == "f1"){echo 'checked="checked"';} ?> id="f1id" /> <label for="f1"><img alt="logo F1" src="pictures/f1.jpg"/></label>
+    		   <div id="filTxt">Représentez votre filière :</div><br />
+    		   <input type="radio" name="fil" value="f1" <?php if(isset($liste) && $liste[1] == "f1"){echo 'checked="checked"';} ?> id="f1id" > <label for="f1"/><img alt="logo F1" src="pictures/f1.jpg"/></label>
     		   <input type="radio" name="fil" value="f2" <?php if(isset($liste) && $liste[1] == "f2"){echo 'checked="checked"';} ?> id="f2id" /> <label for="f2"><img alt="logo F1" src="pictures/f2.jpg"/></label>
                <input type="radio" name="fil" value="f3" <?php if(isset($liste) && $liste[1] == "f3"){echo 'checked="checked"';} ?> id="f3id" /> <label for="f3"><img alt="logo F1" src="pictures/f3.jpg"/></label><br />
                <input type="radio" name="fil" value="f4" <?php if(isset($liste) && $liste[1] == "f4"){echo 'checked="checked"';} ?> id="f4id" /> <label for="f4"><img alt="logo F1" src="pictures/f4.jpg"/></label>
                <input type="radio" name="fil" value="f5" <?php if(isset($liste) && $liste[1] == "f5"){echo 'checked="checked"';} ?> id="f5id" /> <label for="f5"><img alt="logo F1" src="pictures/f5.jpg"/></label>
                <input type="radio" name="fil" value="other" <?php if(isset($liste) && $liste[1] == "other"){echo 'checked="checked"';} ?> id="otherid" /> <label for="other"><img alt="logo F1" src="pictures/other.jpg"/></label>
-               <center style="margin-top: 5px; font-size:9px;">(Other pour les invités)</center>
+               <center id="otherTxt" style="margin-top: 5px; font-size:9px;">(Other pour les invités)</center>
    			</p>
 			<p>
-				<input type="submit" value="Connexion"/>
-				<input type='reset' value='Annuler'/>
+				<input id="submitFrom" type="submit" value="Connexion"/>
+				<input id="resetFrom" type='reset' value='Annuler'/>
 			</p>
 		</form>
     </div>
