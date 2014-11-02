@@ -83,4 +83,12 @@
         </div>
 		<div id="verticalBlock"></div>
     </body>
+   	<script type="text/javascript">
+		var url = document.location.href;
+		var fr = 'FR';
+		if(url.indexOf(fr) == -1)
+		{
+			langChange('home', 'EN');
+		}
+    </script>
 </html>

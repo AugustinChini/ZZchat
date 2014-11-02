@@ -16,7 +16,7 @@
     <div id="lang"><img alt="English language" onclick="langChange('index', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('index', 'FR')"  src="pictures/fr.jpg" /></div>
     <div id="loginBlock">
     	<img alt="logo ZZChat" src="pictures/logo.png" />
-    	<form id="loginFrom" action="processing.php" method="post">
+    	<form id="loginFrom" name="form" action="processing.php?lang=FR" method="post">
 			<p>
             	<p><div id="logTxt">Pseudo  :</div>
                 	<?php

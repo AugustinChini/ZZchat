@@ -3,6 +3,7 @@
 		include("checkLog.php");
 		$log = $_POST["login"];
 		$fil = $_POST["fil"];
+		$lang = $_GET["lang"];
 		$result = checkLog($log, $fil);
 		if ($result != 'err')
 		{
@@ -37,7 +38,7 @@
 					session_start ();
 					$_SESSION['login'] = $log;
 					$_SESSION['fil'] = $fil;
-					header ('location: home.php');
+					header ('location: home.php?lang='.$lang);
 				}
 			}
 			else

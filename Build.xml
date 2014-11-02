@@ -1,0 +1,22 @@
+<project
+
+ name="project-builder" 
+
+ default="int" 
+
+ basedir="."> 
+    <target name="int">
+
+        <echo message="Running unit tests with PHPUnit" />
+
+    </target>
+	
+	<target name="test">
+
+        <exec executable="phpunit" failonerror="true">
+            <arg value="--log-junit results.xml tests/login_check_test.php"/>
+        </exec>
+
+    </target>
+
+</project>

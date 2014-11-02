@@ -1,5 +1,6 @@
 var larg = $(window).width();
 var haut = $(window).height();
+
 $(document).ready(function ()
 {
 	$("#conv1").hide();

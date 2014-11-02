@@ -7,6 +7,7 @@ function langChange(pg, lang)
 		if(lang == "EN")
 		{
 			XML_Path = "SettingFiles/EN.xml";
+			document.form.action = "processing.php?lang=EN";
 		}
 	}
 	else if(pg == "home")
@@ -79,7 +80,7 @@ function langChange(pg, lang)
 						document.getElementById('submitFrom').value= element.firstChild.data;
 						element = doc.getElementsByTagName('txt').item(i+1);
 						storing = document.getElementById(divList[i+1]);
-						document.getElementById('resetFrom').value= element.firstChild.data; 
+						document.getElementById('resetFrom').value= element.firstChild.data;
 					}
 				}	
 				else	
