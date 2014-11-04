@@ -17,6 +17,16 @@ class ProceduralTest extends PHPunit_Framework_Testcase {
         $result = checkLog('user who have a too long longin','f5');
         $this->assertEquals('err', $result);
     }
+	public function testquotes(){
+		$log = '"user1"';
+        $result = checkLog($log,'f5');
+		$findme   = '"';
+        $this->assertEquals(strpos($log, $findme), false);
+		$log = "'user1'";
+        $result = checkLog($log,'f5');
+		$findme   = "'";
+        $this->assertEquals(strpos($log, $findme), false);
+    }
 	public function testAllRight(){
 		$log = 'user1';
         $result = checkLog($log,'f5');

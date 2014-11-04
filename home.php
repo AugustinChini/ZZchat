@@ -41,7 +41,9 @@
 				} while (!feof($fp));
 			?>
 		</div>
-        <div id="chatRoom"><center><div id="title" style="margin:0px;">Salon de discution :</title></center></div>
+        <center>
+			<div id="chatRoom"><div id="title" style="margin:0px;">Salon de discution :</div>
+		</center>
         <div id="textChat">
         	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla gravida dapibus velit posuere mattis. Nullam efficitur ultricies nunc ut porta. Aliquam malesuada consequat diam et facilisis. Cras aliquam auctor hendrerit. Fusce tincidunt, mauris at vestibulum sagittis.</p>
             <br />
@@ -58,7 +60,7 @@
 		  	<div id="textAera">
 		    	<textarea></textarea>
 		  	</div>
-          </center>
+        </center>
         <div id="privateConv">
            <div id="conv1">
            		<img src="pictures/cross.png" width="8%" onclick="kill()" />

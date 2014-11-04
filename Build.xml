@@ -1,22 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <project
+	name="project-builder"
+	default= "test"
+	basedir=".">
 
- name="project-builder" 
-
- default="int" 
-
- basedir="."> 
-    <target name="int">
-
-        <echo message="Running unit tests with PHPUnit" />
-
-    </target>
+	<property name="test.filename" value="tests/" />
 	
 	<target name="test">
-
-        <exec executable="phpunit" failonerror="true">
-            <arg value="--log-junit results.xml tests/login_check_test.php"/>
-        </exec>
-
-    </target>
-
+		<exec executable="./phpunit.cmd">
+			<arg value="--log-junit"/>
+			<arg value="result.xml"/>
+			<arg value="${test.filename}"/>
+		</exec>
+	</target>
 </project>
