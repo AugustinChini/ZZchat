@@ -21,6 +21,7 @@
 		<script type="text/javascript" src="script/scriptHome.js"></script>
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
 		<script type="text/javascript" src="script/language.js"></script>
+        <script type="text/javascript" src="script/chatRefresh.js"></script>
     </head>
     <body>
     	<div id="lang"><img alt="English language" onclick="langChange('home', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('home', 'FR')" src="pictures/fr.jpg" /> <a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a></div>
@@ -45,20 +46,21 @@
 			<div id="chatRoom"><div id="title" style="margin:0px;">Salon de discution :</div>
 		</center>
         <div id="textChat">
+        	<p class="info">- User1 04/11/14 20:46 :</p>
         	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla gravida dapibus velit posuere mattis. Nullam efficitur ultricies nunc ut porta. Aliquam malesuada consequat diam et facilisis. Cras aliquam auctor hendrerit. Fusce tincidunt, mauris at vestibulum sagittis.</p>
-            <br />
+            <p class="info">- User1 04/11/14 20:46 :</p>
             <p>Nunc aliquam aliquet arcu pharetra pretium. </p>
-            <br />
+            <p class="info">- User1 04/11/14 20:46 :</p>
             <p>Pellentesque et faucibus nunc. Donec pellentesque interdum velit, ac rhoncus odio aliquet posuere. Praesent in purus a nisi condimentum faucibus. Curabitur euismod purus tortor, a elementum velit mollis vitae. Duis non est commodo, rhoncus tortor eu,</p>
-            <br />
+            <p class="info">- User1 04/11/14 20:46 :</p>
             <p>Aenean ut auctor neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus</p>
-            <br />
+            <p class="info">- User1 04/11/14 20:46 :</p>
             <p>ellentesque et faucibus nunc. Donec pellentesque interdum velit, ac rhoncus odio aliquet posuere. Praesent in purus a nisi condimentum faucibus. Curabitur euismod purus tortor, a elementum velit mollis vitae. Duis non est commodo, rhoncus tortor eu, gravida magna. Maecenas id ante ac nibh finibus tempor ut in risus. Sed et lacinia tellus. Nam et metus luctus, malesuada velit id, commodo dolor. Nullam in elementum nisl. Nam eu mauris porta orci gravida luctus. Fusce ac massa eget risus iaculis venenatis. Maecenas eu diam nulla. Duis gravida blandit est nec vehicula. </p>
             <br />
         </div>
 		<center>
 		  	<div id="textAera">
-		    	<textarea></textarea>
+		    	<textarea onkeypress="if (event.keyCode == 13) refresh();"></textarea>
 		  	</div>
         </center>
         <div id="privateConv">

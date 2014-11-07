@@ -9,6 +9,7 @@ $(document).ready(function ()
 	$("#onlineTxt").fitText(1);
 	$("#title").fitText(1.5);
 	$("#textPriv p").fitText(1.5);
+	$("#textChat p").fitText(4);
 	//---start animation--//
 	$("#verticalBlock").animate({height: 50},700); 
 	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce'); 
