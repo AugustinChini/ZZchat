@@ -1,9 +1,19 @@
 <?xml version="1.0" ?>
 <root>
-	<info>user1 04/11/14 22:12</info>
+	<size>7</size>
+	<info>- user1 04/11/14 22:12</info>
 	<msg>coucou</msg>
-	<info>user2 04/11/14 22:12</info>
+	<info>- user2 04/11/14 22:12</info>
 	<msg>ca va </msg>
-	<info>user1 04/11/14 22:12</info>
+	<info>- user1 04/11/14 22:12</info>
 	<msg>oui et toi</msg>
+	<info>- user1 04/11/14 22:12</info>
+	<msg>oui et toi</msg>
+	<info>- user1 04/11/14 22:12</info>
+	<msg>oui et toi</msg>
+	<info>- user1 04/11/14 22:12</info>
+	<msg>oui et toi</msg>
+	<info>- user1 04/11/14 22:12</info>
+	<msg>oui et toi</msg>
+	
 </root>

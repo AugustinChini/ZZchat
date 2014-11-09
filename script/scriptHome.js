@@ -3,8 +3,10 @@ var haut = $(window).height();
 
 $(document).ready(function ()
 {
+	//---Hide the private chat buble and draggable attribut--//
 	$("#conv1").hide();
 	$("#conv1").draggable();
+	//---dynamic autosize of text--//
 	$("#onlineBloc p").fitText(0.7);
 	$("#onlineTxt").fitText(1);
 	$("#title").fitText(1.5);
@@ -12,7 +14,7 @@ $(document).ready(function ()
 	$("#textChat p").fitText(4);
 	//---start animation--//
 	$("#verticalBlock").animate({height: 50},700); 
-	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce'); 
+	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce');
 
 });
 
