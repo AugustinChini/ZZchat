@@ -1,19 +1,6 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <root>
-	<size>7</size>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>coucou</msg>
-	<info>- user2 04/11/14 22:12</info>
-	<msg>ca va </msg>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>oui et toi</msg>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>oui et toi</msg>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>oui et toi</msg>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>oui et toi</msg>
-	<info>- user1 04/11/14 22:12</info>
-	<msg>oui et toi</msg>
-	
-</root>
+	<size>6</size>
+	<info>- Root 04/11/14 22:12</info>
+	<msg>Chatroom is running ...</msg>
+<info>- &#xE9;milie 10-11-2014 21:51 :</info><msg>ah c'est vrai ca marche ?</msg><info>- &#xE9;milie 10-11-2014 21:52 :</info><msg>ah mais je suis seule personne me parle .... :'(</msg><info>- &#xE9;milie 10-11-2014 21:52 :</info><msg>tg bitch &lt;3</msg><info>- &#xE9;milie 10-11-2014 21:53 :</info><msg>weeeeee :)</msg><info>- Augustin 10-11-2014 21:53 :</info><msg>coucou :)</msg></root>

@@ -50,40 +50,60 @@ loadXMLDoc("SettingFiles/chatRoom.xml",function()
 function createInstance()
 {
   var req = null;
-  if(window.XMLHttpRequest) {
+  if(window.XMLHttpRequest)
+  {
     req = new XMLHttpRequest();
   }
-  else if (window.ActiveXObject) {
-    try {
+  else if (window.ActiveXObject)
+  {
+    try
+	{
       req = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (e) {
-       try {
-        req = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (e) {
-            alert("XHR not created");
-          }
-      }
     }
+	catch (e) 
+	{
+       try 
+	   {
+         req = new ActiveXObject("Microsoft.XMLHTTP");
+       }
+	   catch (e) 
+	   {
+            alert("XHR not created");
+       }
+    }
+  }
     return req;
 }
 
-function send()
+function send(user)
 {
+	var d = new Date();
 	var msgTextArea = $("#textA").val();
 	$("#textA").val('');
 	$("#textA").val('');
-	var formData = {msg: msgTextArea };
-	$.ajax({
+	var formData = {user: user, date: getStringDate(d), msg: msgTextArea};
+	$.ajax(
+	{
 		url : "AjaxAddMsg.php",
 		type: "POST",
 		data : formData,
-		success: function(data, textStatus, jqXHR)
+		error: function ()
 		{
-			//data - response from server
-		},
-		error: function (jqXHR, textStatus, errorThrown)
-		{
-	 
+			alert("erreur server !!!");
 		}
 	});
 }
+
+function getStringDate(aDate){
+	var dd = aDate;
+	var yy = dd.getYear();
+	var mm = dd.getMonth() + 1;
+	dd = dd.getDate();
+	if (yy < 2000) { yy += 1900; }
+	if (mm < 10) { mm = "0" + mm; }
+	if (dd < 10) { dd = "0" + dd; }
+	var HH = aDate.getHours(); 
+	var MM = aDate.getMinutes(); 
+	var rs = dd + "-" + mm + "-" + yy +" " + HH +":"+ MM ;
+	return rs;
+} 

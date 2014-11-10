@@ -50,7 +50,7 @@
         </div>
 		<center>
 		  	<div id="textAera">
-		    	<textarea id="textA" onkeypress="if (event.keyCode == 13) send();"></textarea>
+		    	<textarea id="textA" onkeypress="if (event.keyCode == 13) send(<?php echo("'".$log."'") ?>);"></textarea>
 		  	</div>
         </center>
         <div id="privateConv">
