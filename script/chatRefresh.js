@@ -1,11 +1,13 @@
 $(document).ready(function ()
 {
 	init();
+	setTimeout(function(){setInterval(function () {tempo()}, 3000);},500);
+	
 });
 
-
 var xmlhttp;
-var currentSize
+var currentSize = 0;
+var size = 0;
 function loadXMLDoc(url,cfunc)
 {
 	if (window.XMLHttpRequest)
@@ -21,6 +23,58 @@ function loadXMLDoc(url,cfunc)
 	xmlhttp.send();
 }
 
+function tempo()
+{
+	loadXMLDoc("SettingFiles/chatRoom.xml",function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			var doc = xmlhttp.responseXML;
+			element = doc.getElementsByTagName('size')[0].childNodes[0];
+			size = element.data;
+			if(currentSize != size)
+			{
+				refresh(size);
+			}
+		}
+	  });
+	  
+}
+
+function refresh()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			var doc = xmlhttp.responseXML;
+			var i = 0;
+			for (var i =currentSize; i<size; ++i)
+			{
+				element = doc.getElementsByTagName('info')[i].childNodes[0];
+				$( "#textChat" ).append( '<p class="info">'+element.data+'</p>' );
+				element = doc.getElementsByTagName('msg')[i].childNodes[0];
+				$( "#textChat" ).append( '<p>'+element.data+'</p>' );
+				currentSize = size;
+				
+			}
+			$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
+			$("#textChat p").fitText(4);
+		}
+	  }
+	xmlhttp.open("GET","SettingFiles/chatRoom.xml",true);
+	xmlhttp.send();
+}
+
 function init()
 {
 loadXMLDoc("SettingFiles/chatRoom.xml",function()
@@ -32,6 +86,7 @@ loadXMLDoc("SettingFiles/chatRoom.xml",function()
 		var i = 0;
 		element = doc.getElementsByTagName('size')[0].childNodes[0];
 		size = element.data;
+		currentSize = size;
 		for (var i =0; i<size; ++i)
 		{
 			element = doc.getElementsByTagName('info')[i].childNodes[0];
@@ -44,35 +99,6 @@ loadXMLDoc("SettingFiles/chatRoom.xml",function()
 		$("#textChat p").fitText(4);
     }
   });
-}
-
-
-function createInstance()
-{
-  var req = null;
-  if(window.XMLHttpRequest)
-  {
-    req = new XMLHttpRequest();
-  }
-  else if (window.ActiveXObject)
-  {
-    try
-	{
-      req = new ActiveXObject("Msxml2.XMLHTTP");
-    }
-	catch (e) 
-	{
-       try 
-	   {
-         req = new ActiveXObject("Microsoft.XMLHTTP");
-       }
-	   catch (e) 
-	   {
-            alert("XHR not created");
-       }
-    }
-  }
-    return req;
 }
 
 function send(user)

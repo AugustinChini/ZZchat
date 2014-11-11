@@ -22,6 +22,14 @@
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
 		<script type="text/javascript" src="script/language.js"></script>
         <script type="text/javascript" src="script/chatRefresh.js"></script>
+		<script type="text/javascript">
+			window.onbeforeunload = confirmExit;
+			function confirmExit()
+			{
+				document.location.href="<?php echo "logOut.php?log=".$log ?>" 
+				return '';
+			}
+		</script>
     </head>
     <body>
     	<div id="lang"><img alt="English language" onclick="langChange('home', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('home', 'FR')" src="pictures/fr.jpg" /> <a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a></div>
