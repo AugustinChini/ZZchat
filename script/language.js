@@ -12,7 +12,7 @@ function langChange(pg, lang)
 	}
 	else if(pg == "home")
 	{
-		var divList = new Array("onlineTxt","title");
+		var divList = new Array("onlineTitle","title");
 		if(lang == "FR")
 		{
 			XML_Path = "SettingFiles/FR_home.xml";

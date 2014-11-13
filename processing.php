@@ -1,10 +1,16 @@
 <?php 
 		include("cookie.php");
 		include("checkLog.php");
+		include("XMLHandling.php");
 		$log = $_POST["login"];
 		$fil = $_POST["fil"];
 		$lang = $_GET["lang"];
+		$bool =0;
+		$i = 0;
+		
 		$result = checkLog($log, $fil);
+		
+
 		if ($result != 'err')
 		{
 			$log = $result;
@@ -12,34 +18,53 @@
 			{
 				cookie($log, $fil);
 			}
-			$fichier = 'SettingFiles/userSettings.txt';
-			$bool =0;
-			if (file_exists($fichier))
+			$XMLfile = 'SettingFiles/userSettings.xml';
+			if (file_exists($XMLfile))
 			{
-				$fp = fopen($fichier, 'r+');
-				do{
-					$ligne = fgets($fp,500);
-					$liste = explode(';',$ligne);
-					if($liste[0] == $log)
+				$xml = new DOMDocument("1.0");
+				$xml -> load($XMLfile);
+				$root = $xml->getElementsByTagName("root")->item(0);
+				
+				$currentSize = getSize($xml);
+				
+				
+				do
+				{
+					$user = $xml->getElementsByTagName("user")->item($i);
+					$userValue = $user->firstChild->nodeValue;
+					if($userValue == $log)
 					{
 						echo("<p>".$log." this login is already used sorry ...</p>");
 						$bool = 1;
-						fclose($fp);
 						header('Refresh:3; url=index.php');
 					}
-				}while (!feof($fp) && $bool == 0);
+					++$i;
+					
+				}while($i<$currentSize && $bool == 0);
+				
 				if($bool == 0)
 				{
-					fseek($fp, 0, SEEK_END);
-					fputs($fp, PHP_EOL);
-					fputs($fp, $log.";");
-					fputs($fp, $fil);
-					fclose($fp);
+					$user = cElement($xml, "user", $root);
+					AddValue($xml, $log, $user);
+					
+					$XMLfil = cElement($xml, "fil", $root);
+					AddValue($xml, "$fil", $XMLfil);
+					
+					$size = $xml->getElementsByTagName("size")->item(0);
+					$currentSize++;
+					$size->firstChild->nodeValue = $currentSize;
+					
+					$xml->formatOutput=true;
+					$xml->save($XMLfile);
+					
 					session_start ();
 					$_SESSION['login'] = $log;
 					$_SESSION['fil'] = $fil;
+					
+
 					header ('location: home.php?lang='.$lang);
 				}
+				
 			}
 			else
 			echo "<h3>File error !</h3>";
@@ -50,4 +75,6 @@
 			fclose($fp);
 			header('Refresh:3; url=index.php');
 		}
+		
+
 ?> 

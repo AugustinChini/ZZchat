@@ -1,13 +1,15 @@
 $(document).ready(function ()
 {
 	init();
-	setTimeout(function(){setInterval(function () {tempo()}, 3000);},500);
+	setInterval(function () {tempo()}, 300);
+	setInterval(function () {logOnRefresh()}, 3000);
 	
 });
 
 var xmlhttp;
 var currentSize = 0;
 var size = 0;
+var sizeLogOn = 0;
 function loadXMLDoc(url,cfunc)
 {
 	if (window.XMLHttpRequest)
@@ -34,14 +36,56 @@ function tempo()
 			size = element.data;
 			if(currentSize != size)
 			{
-				refresh(size);
+				refreshMsg(size);
 			}
 		}
 	  });
 	  
 }
 
-function refresh()
+
+function logOnRefresh()
+{
+	var size =0;
+	var xmlhttpLogOn;
+	var currentSizeL = 0;
+	if (window.XMLHttpRequest)
+	{
+		xmlhttpLogOn=new XMLHttpRequest();
+	}
+	else
+	{
+		xmlhttpLogOn=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttpLogOn.onreadystatechange=function()
+	{
+		if (xmlhttpLogOn.readyState==4 && xmlhttpLogOn.status==200)
+		{
+			var doc = xmlhttpLogOn.responseXML;
+			var i = 0;
+			
+			size = doc.getElementsByTagName('size')[0].childNodes[0];
+			currentSizeL = size.data;
+			
+			if(currentSizeL != sizeLogOn)
+			{
+				jQuery('#onlineTxt').html('');
+				for (var i = 0 ; i<currentSizeL; ++i)
+				{
+					user = doc.getElementsByTagName('user')[i].childNodes[0];
+					fil = doc.getElementsByTagName('fil')[i].childNodes[0];
+					$( "#onlineTxt" ).append( "<img src='pictures/" + fil.data + ".jpg'/><p onclick=\"showConv('" + user.data + "')\">" + user.data + "</p><br/>" );	
+					sizeLogOn = currentSizeL;
+				}
+				$("#onlineTxt").fitText(1);
+			}
+		}
+	  };
+	xmlhttpLogOn.open("GET","SettingFiles/userSettings.xml",true);
+	xmlhttpLogOn.send();
+}
+
+function refreshMsg()
 {
 	var xmlhttp;
 	if (window.XMLHttpRequest)

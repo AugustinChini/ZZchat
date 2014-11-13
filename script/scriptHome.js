@@ -8,7 +8,7 @@ $(document).ready(function ()
 	$("#conv1").draggable();
 	//---dynamic autosize of text--//
 	$("#onlineBloc p").fitText(0.7);
-	$("#onlineTxt").fitText(1);
+	$("#onlineTitle").fitText(1);
 	$("#title").fitText(1.5);
 	$("#textPriv p").fitText(1.5);
 	$("#textChat p").fitText(4);

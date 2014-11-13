@@ -54,7 +54,7 @@ padding: 5px;
 	background-color: #FFF;
 	height: 100%;
 	width: 15%;
-	padding-top: 10px;
+	padding-top: 65px;
 	border-left-style: solid;
     border-left-width: 10px;
     border-left-color: #005DA3;
@@ -85,6 +85,16 @@ padding: 5px;
 	text-decoration: underline;
 	margin:0; 
 	margin-bottom: 30px;
+}
+
+#onlineTitle
+{
+	height: 10%;
+	width: 15%;
+	position : absolute;
+	z-index : 5;
+	top: 0px;
+	left: 3%;
 }
 
 #onlineBloc img

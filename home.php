@@ -22,34 +22,13 @@
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
 		<script type="text/javascript" src="script/language.js"></script>
         <script type="text/javascript" src="script/chatRefresh.js"></script>
-		<script type="text/javascript">
-			window.onbeforeunload = confirmExit;
-			function confirmExit()
-			{
-				document.location.href="<?php echo "logOut.php?log=".$log ?>" 
-				return '';
-			}
-		</script>
     </head>
     <body>
     	<div id="lang"><img alt="English language" onclick="langChange('home', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('home', 'FR')" src="pictures/fr.jpg" /> <a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a></div>
+        <div id="onlineTitle">ZZ en ligne :</div>
 		<div id="onlineBloc">
-		<center><div id="onlineTxt" >ZZ en ligne :</div></center>
-			<?php
-				$fichier = 'SettingFiles/userSettings.txt';
-				$fp = fopen($fichier, 'r+');			
-				do
-				{
-					$ligne = fgets($fp,100);
-					if($ligne != PHP_EOL)
-					{
-						$liste = explode(';',$ligne);
-						if (isset($liste[1]) && isset($liste[0]))
-							echo("<img src='pictures/".trim($liste[1]).".jpg'/><p onclick=\"showConv('".$liste[0]."')\">".$liste[0]."</p><br/>");
-					}
-				} while (!feof($fp));
-			?>
-		</div>
+			<center><div id="onlineTxt" ></div></center>
+        </div>
         <center>
 			<div id="chatRoom"><div id="title" style="margin:0px;">Salon de discution :</div>
 		</center>
