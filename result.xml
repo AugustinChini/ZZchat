@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="tests/" tests="6" assertions="7" failures="0" errors="0" time="0.014827">
-    <testsuite name="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" tests="6" assertions="7" failures="0" errors="0" time="0.014827">
-      <testcase name="testEmptylog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="4" assertions="1" time="0.005680"/>
-      <testcase name="testEmptyFil" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="8" assertions="1" time="0.001646"/>
-      <testcase name="testShortLog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="12" assertions="1" time="0.001711"/>
-      <testcase name="testLongLog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="16" assertions="1" time="0.001668"/>
-      <testcase name="testquotes" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="20" assertions="2" time="0.002334"/>
-      <testcase name="testAllRight" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="30" assertions="1" time="0.001788"/>
+  <testsuite name="tests/" tests="6" assertions="7" failures="0" errors="0" time="0.015088">
+    <testsuite name="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" tests="6" assertions="7" failures="0" errors="0" time="0.015088">
+      <testcase name="testEmptylog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="4" assertions="1" time="0.006056"/>
+      <testcase name="testEmptyFil" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="8" assertions="1" time="0.001640"/>
+      <testcase name="testShortLog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="12" assertions="1" time="0.001672"/>
+      <testcase name="testLongLog" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="16" assertions="1" time="0.001663"/>
+      <testcase name="testquotes" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="20" assertions="2" time="0.002367"/>
+      <testcase name="testAllRight" class="ProceduralTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="30" assertions="1" time="0.001690"/>
     </testsuite>
   </testsuite>
 </testsuites>

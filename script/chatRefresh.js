@@ -1,148 +1,93 @@
-$(document).ready(function ()
-{
-	init();
-	setInterval(function () {tempo()}, 300);
-	setInterval(function () {logOnRefresh()}, 3000);
-	
-});
-
 var xmlhttp;
 var currentSize = 0;
 var size = 0;
+var currentSizeL = 0;
 var sizeLogOn = 0;
-function loadXMLDoc(url,cfunc)
+
+if (window.XMLHttpRequest)
 {
-	if (window.XMLHttpRequest)
-	  {
-		xmlhttp=new XMLHttpRequest();
-	  }
-	else
-	  {
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	  }
-	xmlhttp.onreadystatechange=cfunc;
-	xmlhttp.open("GET",url ,true);
-	xmlhttp.send();
+	xmlhttp=new XMLHttpRequest();
+}
+else
+{
+	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 }
 
-function tempo()
+$(document).ready(function ()
 {
-	loadXMLDoc("SettingFiles/chatRoom.xml",function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			var doc = xmlhttp.responseXML;
-			element = doc.getElementsByTagName('size')[0].childNodes[0];
-			size = element.data;
-			if(currentSize != size)
-			{
-				refreshMsg(size);
-			}
-		}
-	  });
-	  
-}
+	init();
+	setInterval(function () {loadXMLDoc("SettingFiles/chatRoom.xml", "msg"); }, 1000);
+	setInterval(function () {loadXMLDoc("SettingFiles/userSettings.xml", "logon");}, 3000);
+	
+});
 
-
-function logOnRefresh()
+function loadXMLDoc(url, type)
 {
-	var size =0;
-	var xmlhttpLogOn;
-	var currentSizeL = 0;
-	if (window.XMLHttpRequest)
-	{
-		xmlhttpLogOn=new XMLHttpRequest();
-	}
-	else
-	{
-		xmlhttpLogOn=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttpLogOn.onreadystatechange=function()
-	{
-		if (xmlhttpLogOn.readyState==4 && xmlhttpLogOn.status==200)
-		{
-			var doc = xmlhttpLogOn.responseXML;
-			var i = 0;
-			
-			size = doc.getElementsByTagName('size')[0].childNodes[0];
-			currentSizeL = size.data;
-			
-			if(currentSizeL != sizeLogOn)
+	  xmlhttp.open("GET",url ,true);
+	  xmlhttp.send();
+	  xmlhttp.onreadystatechange=function()
+	  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{
-				jQuery('#onlineTxt').html('');
-				for (var i = 0 ; i<currentSizeL; ++i)
-				{
-					user = doc.getElementsByTagName('user')[i].childNodes[0];
-					fil = doc.getElementsByTagName('fil')[i].childNodes[0];
-					$( "#onlineTxt" ).append( "<img src='pictures/" + fil.data + ".jpg'/><p onclick=\"showConv('" + user.data + "')\">" + user.data + "</p><br/>" );	
-					sizeLogOn = currentSizeL;
-				}
-				$("#onlineTxt").fitText(1);
-			}
-		}
-	  };
-	xmlhttpLogOn.open("GET","SettingFiles/userSettings.xml",true);
-	xmlhttpLogOn.send();
-}
-
-function refreshMsg()
-{
-	var xmlhttp;
-	if (window.XMLHttpRequest)
-	  {
-	  xmlhttp=new XMLHttpRequest();
-	  }
-	else
-	  {
-	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	  }
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			var doc = xmlhttp.responseXML;
-			var i = 0;
-			for (var i =currentSize; i<size; ++i)
-			{
-				element = doc.getElementsByTagName('info')[i].childNodes[0];
-				$( "#textChat" ).append( '<p class="info">'+element.data+'</p>' );
-				element = doc.getElementsByTagName('msg')[i].childNodes[0];
-				$( "#textChat" ).append( '<p>'+element.data+'</p>' );
-				currentSize = size;
+				var doc = xmlhttp.responseXML;
 				
+				element = doc.getElementsByTagName('size')[0].childNodes[0];
+				size = element.data;
+				if(type == 'msg')
+				{
+					if(currentSize != size)
+					{
+						refreshMsg(size);
+					}
+				}
+				else 
+				{
+					if(currentSizeL != size)
+					{
+						logOnRefresh(size);
+					}
+				}
 			}
-			$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
-			$("#textChat p").fitText(4);
-		}
-	  }
-	xmlhttp.open("GET","SettingFiles/chatRoom.xml",true);
-	xmlhttp.send();
+	  };
 }
+
+function refreshMsg(size)
+{
+	var doc = xmlhttp.responseXML;
+	var i = 0;
+	for (var i =currentSize; i<size; ++i)
+	{
+		element = doc.getElementsByTagName('info')[i].childNodes[0];
+		$( "#textChat" ).append( '<p class="info">'+element.data+'</p>' );
+		element = doc.getElementsByTagName('msg')[i].childNodes[0];
+		$( "#textChat" ).append( '<p>'+element.data+'</p>' );
+		currentSize = size;
+		
+	}
+	$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
+	$("#textChat p").fitText(4);
+}
+
+function logOnRefresh(size)
+{
+		jQuery('#onlineTxt').html('');
+		var doc = xmlhttp.responseXML;
+		var i = 0;
+		for (var i = 0 ; i<size; ++i)
+		{
+			user = doc.getElementsByTagName('user')[i].childNodes[0];
+			fil = doc.getElementsByTagName('fil')[i].childNodes[0];
+			$( "#onlineTxt" ).append( "<img src='pictures/" + fil.data + ".jpg'/><p onclick=\"showConv('" + user.data + "')\">" + user.data + "</p><br/>" );	
+			currentSizeL = size;
+		}
+		$("#onlineTxt").fitText(1);
+}
+
+
 
 function init()
 {
-loadXMLDoc("SettingFiles/chatRoom.xml",function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-		var doc = xmlhttp.responseXML;
-		var size;
-		var i = 0;
-		element = doc.getElementsByTagName('size')[0].childNodes[0];
-		size = element.data;
-		currentSize = size;
-		for (var i =0; i<size; ++i)
-		{
-			element = doc.getElementsByTagName('info')[i].childNodes[0];
-			$( "#textChat" ).append( '<p class="info">'+element.data+'</p>' );
-			element = doc.getElementsByTagName('msg')[i].childNodes[0];
-			$( "#textChat" ).append( '<p>'+element.data+'</p>' );
-			
-		}
-		$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
-		$("#textChat p").fitText(4);
-    }
-  });
+  loadXMLDoc("SettingFiles/chatRoom.xml", "msg");
 }
 
 function send(user)
@@ -162,6 +107,7 @@ function send(user)
 			alert("erreur server !!!");
 		}
 	});
+	loadXMLDoc("SettingFiles/chatRoom.xml", "msg");
 }
 
 function getStringDate(aDate){
