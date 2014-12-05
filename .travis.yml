@@ -6,6 +6,6 @@ php:
 
 before_script:
     -cd app
-	
-script:
-    phpunit ./../tests/ --stderr
+
+
+script:phpunit ./../tests/ --stderr
