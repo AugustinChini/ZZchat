@@ -3,6 +3,9 @@ language: php
 php:
 	-5.5.8
 	-5.3.3
+
+before_script:
+	-cd app
 	
 script:
-	phpunit tests/
+	phpunit ./../tests/ --stderr
