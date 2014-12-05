@@ -3,9 +3,6 @@ php:
   - 5.3
   - 5.4
 
-before_script:
-    -cd app
-
 
 script:
-    phpunit ./../tests/ --stderr
+    phpunit ./../tests/
