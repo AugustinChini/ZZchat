@@ -1,5 +1,5 @@
 <?php
-include('../checkLog.php');
+include('checkLog.php');
 class ProceduralTest extends PHPunit_Framework_Testcase {
     public function testEmptylog(){
         $result = checkLog('','f1');
