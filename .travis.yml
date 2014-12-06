@@ -5,4 +5,4 @@ php:
 
 
 script:
-    phpunit ./../tests/
+    phpunit tests/
