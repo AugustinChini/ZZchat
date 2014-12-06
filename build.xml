@@ -8,7 +8,7 @@
 	<property name="test.filename" value="tests/" />
 	
 	<target name="test">
-		<exec executable="./phpunit.cmd">
+		<exec executable="./phpunit">
 			<arg value="--log-junit"/>
 			<arg value="result.xml"/>
 			<arg value="${test.filename}"/>
