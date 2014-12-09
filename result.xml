@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="tests/" tests="8" assertions="9" failures="0" errors="0" time="0.022218">
+    <testsuite name="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" tests="6" assertions="7" failures="0" errors="0" time="0.014763">
+      <testcase name="testEmptylog" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="4" assertions="1" time="0.005593"/>
+      <testcase name="testEmptyFil" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="8" assertions="1" time="0.001791"/>
+      <testcase name="testShortLog" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="12" assertions="1" time="0.001709"/>
+      <testcase name="testLongLog" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="16" assertions="1" time="0.001635"/>
+      <testcase name="testquotes" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="20" assertions="2" time="0.002320"/>
+      <testcase name="testAllRight" class="loginCheckTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\loginCheckTest.php" line="30" assertions="1" time="0.001715"/>
+    </testsuite>
+    <testsuite name="XMLHandlingTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\xmlHandleTest.php" tests="2" assertions="2" failures="0" errors="0" time="0.007455">
+      <testcase name="testCreateChild" class="XMLHandlingTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\xmlHandleTest.php" line="15" assertions="1" time="0.004207">
+        <system-out>&#13;
+ Reset test file.....</system-out>
+      </testcase>
+      <testcase name="testAddValue" class="XMLHandlingTest" file="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\ZZchat\tests\xmlHandleTest.php" line="42" assertions="1" time="0.003248">
+        <system-out>&#13;
+ Reset test file.....</system-out>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>
