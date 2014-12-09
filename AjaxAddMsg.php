@@ -25,7 +25,8 @@
 		
 		$xml->formatOutput=true;
 		$xml->save($XMLfile);
-	} else
+	} 
+	else
 	{
 		exit('Echec lors de l\'ouverture du fichier xml.');
 	}

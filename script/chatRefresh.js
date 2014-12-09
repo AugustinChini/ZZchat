@@ -1,5 +1,5 @@
 var xmlhttp;
-var currentSize = 1;
+var currentSize = 0;
 var size = 0;
 var currentSizeL = 0;
 var sizeLogOn = 0;
@@ -58,7 +58,7 @@ function refreshMsg(size)
 {
 	var doc = xmlhttp.responseXML;
 	var i = 0;
-	for (var i = currentSize; i<size; ++i)
+	for (i = currentSize; i<size; i++)
 	{
 		element = doc.getElementsByTagName('info')[i].childNodes[0];
 		if(((element.data).indexOf(userName)) == -1)
@@ -77,10 +77,10 @@ function refreshMsg(size)
 
 					$( "#textChat" ).append( '<p style="margin-left:50%;">'+element.data+'</p>' );
 		}
-		//$("#textChat p").fitText(4);
-		currentSize = size;
+		
 	}
 	$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
+	currentSize = size;
 	
 }
 

@@ -1,6 +1,6 @@
 <?php
 include('checkLog.php');
-class ProceduralTest extends PHPunit_Framework_Testcase {
+class loginCheckTest extends PHPunit_Framework_Testcase {
     public function testEmptylog(){
         $result = checkLog('','f1');
         $this->assertEquals('err', $result);

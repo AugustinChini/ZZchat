@@ -19,7 +19,6 @@
 	
 	$size = $xml->getElementsByTagName("size")->item(0)->nodeValue;
 	
-	//$docNode->appendChild($doc->importNode( $msg, true ));
 	
 	if($QueryType == "msgQuery")
 	{

@@ -5,6 +5,10 @@
 		$log = $_SESSION['login'];
 		$fil = $_SESSION['fil'];
 	}
+	else
+	{
+		header ('location: index.php');
+	}
 	
 ?>
 

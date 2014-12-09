@@ -57,12 +57,17 @@
 					$xml->formatOutput=true;
 					$xml->save($XMLfile);
 					
-					session_start ();
-					$_SESSION['login'] = $log;
-					$_SESSION['fil'] = $fil;
+					if (session_start ())
+					{
+						$_SESSION['login'] = $log;
+						$_SESSION['fil'] = $fil;
+						header ('location: home.php?lang='.$lang);
+					}
+					else
+					{
+						header ('location: index.php');
+					}
 					
-
-					header ('location: home.php?lang='.$lang);
 				}
 				
 			}
