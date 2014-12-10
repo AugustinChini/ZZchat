@@ -58,7 +58,28 @@
               </center>
            </div>
         </div>
-		<div id="verticalBlock"></div>
+		<center><div id="verticalBlock">
+			<img  width="3.5%" src="pictures/smily.png" onclick="parse('smily')" />
+			<img  width="3.5%" src="pictures/wink.png" onclick="parse('wink')" />
+			<img  width="3.5%" src="pictures/tongue.png" onclick="parse('tongue')" />
+			<img  width="3.5%" src="pictures/sad.png" onclick="parse('sad')" />
+			<img  width="3.5%" src="pictures/heart.png" onclick="parse('heart')" />
+			<img  width="3.5%" src="pictures/bold.png" onclick="parse('bold')" />
+			<img  width="3.5%" src="pictures/italic.png" onclick="parse('italic')" />
+			<img  width="3.5%" src="pictures/under.png" onclick="parse('under')" />
+			<img  width="3.5%" src="pictures/1.png" onclick="parse('1')" />
+			<img  width="3.5%" src="pictures/2.png" onclick="parse('2')" />
+			<img  width="3.5%" src="pictures/3.png" onclick="parse('3')" />
+			<img  width="3.5%" src="pictures/4.png" onclick="parse('4')" />
+			<img  width="3.5%" src="pictures/5.png" onclick="parse('5')" />
+			<img  width="3.5%" src="pictures/6.png" onclick="parse('6')" />
+			<img  width="3.5%" src="pictures/black.png" onclick="parse('black')" />
+			<img  width="3.5%" src="pictures/red.png" onclick="parse('red')" />
+			<img  width="3.5%" src="pictures/green.png" onclick="parse('green')" />
+			<img  width="3.5%" src="pictures/blue.png" onclick="parse('blue')" />
+			<img  width="3.5%" src="pictures/pink.png" onclick="parse('pink')" />
+
+		</div></center>
     </body>
    	<script type="text/javascript">
 		var url = document.location.href;
@@ -67,5 +88,6 @@
 		{
 			langChange('home', 'EN');
 		}
+		setUserName(<?php echo("'".$log."'") ?>);
     </script>
 </html>

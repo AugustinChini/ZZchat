@@ -17,7 +17,7 @@ else
 $(document).ready(function ()
 {
 	init();
-	setInterval(function () {loadXMLDoc("msgQuery"); }, 500);
+	setInterval(function () {loadXMLDoc("msgQuery"); }, 1000);
 	setInterval(function () {loadXMLDoc("logon");}, 3000);
 	
 });
@@ -34,7 +34,7 @@ function loadXMLDoc(type)
 			{
 				var doc = xmlhttp.responseXML;
 				
-				var element = doc.getElementsByTagName('size')[0].childNodes[0];
+				element = doc.getElementsByTagName('size')[0].childNodes[0];
 				size = element.data;
 				if(type == 'msgQuery')
 				{
@@ -58,9 +58,9 @@ function refreshMsg(size)
 {
 	var doc = xmlhttp.responseXML;
 	var i = 0;
-	for (i = currentSize; i<size; ++i)
+	for (i = currentSize; i<size; i++)
 	{
-		var element = doc.getElementsByTagName('info')[i].childNodes[0];
+		element = doc.getElementsByTagName('info')[i].childNodes[0];
 		if(((element.data).indexOf(userName)) == -1)
 		{
 					$( "#textChat" ).append( '<p class="info">'+element.data+'</p>' );
@@ -77,10 +77,10 @@ function refreshMsg(size)
 
 					$( "#textChat" ).append( '<p style="margin-left:50%;">'+element.data+'</p>' );
 		}
-		;
+		
 	}
 	$( "#textChat" ).animate({ scrollTop : $( "#textChat" ).prop('scrollHeight') }, 500);
-	currentSize = size
+	currentSize = size;
 	
 }
 
@@ -108,8 +108,10 @@ function init()
 
 function send(user)
 {
+	userName = user;
 	var d = new Date();
 	var msgTextArea = $("#textA").val();
+	$("#textA").val('');
 	$("#textA").val('');
 	var formData = {user: user, date: getStringDate(d), msg: msgTextArea};
 	$.ajax(
@@ -123,11 +125,6 @@ function send(user)
 		}
 	});
 	loadXMLDoc("msgQuery");
-}
-
-function setUserName(user)
-{
-	userName = user;
 }
 
 function getStringDate(aDate){
