@@ -16,6 +16,7 @@ $(document).ready(function ()
 	$("#verticalBlock").animate({height: 50},700); 
 	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce');
 	$("#textA").focus();
+	setInterval(function () {clearOldMsg(); }, 50000);
 });
 
 $(window).resize(function()
@@ -35,6 +36,33 @@ function showConv(name)
 function kill()
 {
 	$("#conv1").fadeOut("slow");
+}
+
+function clearOldMsg()
+{
+	var formData = {type: "msgQuery"};
+	$.ajax({
+    type: "POST",
+    url: "XML_response.php",
+    dataType: "xml",
+	data : formData,
+	error: function ()
+	{
+		alert("erreur server !!!");
+	},
+    success: xmlSizeTest
+   });
+}
+
+
+function xmlSizeTest(xml) {
+	var size = $(xml).find("size").text();
+	if(size > 50)
+	{
+		alert("suppr");
+		$.get( "deleteMsg.php");	
+	}
+	
 }
 
 function parse(type)

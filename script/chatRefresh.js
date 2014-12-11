@@ -17,7 +17,7 @@ else
 $(document).ready(function ()
 {
 	init();
-	setInterval(function () {loadXMLDoc("msgQuery"); }, 500);
+	setInterval(function () {loadXMLDoc("msgQuery"); }, 1000);
 	setInterval(function () {loadXMLDoc("logon");}, 3000);
 	
 });

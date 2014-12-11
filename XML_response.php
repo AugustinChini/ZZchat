@@ -22,9 +22,8 @@
 	
 	if($QueryType == "msgQuery")
 	{
-		$begin = $_POST["begin"];
 		$i = 0;
-		for( $i = $begin; $i<$size; ++$i)
+		for( $i = 0; $i<$size; ++$i)
 		{
 			$info = $xml->getElementsByTagName("info")->item($i);
 			echo "<info>". $info->firstChild->nodeValue ."</info>";
