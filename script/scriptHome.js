@@ -15,7 +15,7 @@ $(document).ready(function ()
 	//---start animation--//
 	$("#verticalBlock").animate({height: 50},700); 
 	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce');
-
+	$("#textA").focus();
 });
 
 $(window).resize(function()
@@ -81,23 +81,6 @@ function parse(type)
 		case 'pink':
 			$("#textA").val('[pink]'+($("#textA").val())+'[/pink]');
 			break;
-		case '1':
-			$("#textA").val('[size=1]'+($("#textA").val())+'[/size=1]');
-			break;
-		case '2':
-			$("#textA").val('[size=2]'+($("#textA").val())+'[/size=2]');
-			break;
-		case '3':
-			$("#textA").val('[size=3]'+($("#textA").val())+'[/size=3]');
-			break;
-		case '4':
-			$("#textA").val('[size=4]'+($("#textA").val())+'[/size=4]');
-			break;
-		case '5':
-			$("#textA").val('[size=5]'+($("#textA").val())+'[/size=5]');
-			break;
-		case '6':
-			$("#textA").val('[size=6]'+($("#textA").val())+'[/size=6]');;
-			break;
-} 
+	}
+	$("#textA").focus();
 }

@@ -1,7 +1,15 @@
 <?php
 	include("XMLHandling.php");
+	include("msgParsing.php");
 	
-	$msgPost = $_POST["msg"];
+	if(isset($_POST["msg"]))
+	{
+		$msgPost = parseText($_POST["msg"]);
+	}
+	else
+	{
+		die("error message");
+	}
 	$date = $_POST["date"];
 	$user = $_POST["user"];
 	$XMLfile = 'SettingFiles/chatRoom.xml';
@@ -14,6 +22,7 @@
 		
 		if (file_exists($XMLfile))
 		{
+			
 			$xml = new DOMDocument("1.0");
 			$xml -> load($XMLfile);
 			$root = $xml->getElementsByTagName("root")->item(0);
@@ -22,7 +31,7 @@
 			AddValue($xml, "- ".$user." ".$date." :", $info);
 			
 			$msg = cElement($xml, "msg", $root);
-			AddValue($xml, "$msgPost", $msg);
+			AddValue($xml, "<![CDATA[".$msgPost."]]>", $msg);
 			
 			$size = $xml->getElementsByTagName("size")->item(0);
 			$currentSize = $size->firstChild->nodeValue;

@@ -72,9 +72,9 @@ function refreshMsg(size)
 		}
 		else
 		{
+					
 					$( "#textChat" ).append( '<p style="margin-left:50%;" class="info">'+element.data+'</p>' );
 					element = doc.getElementsByTagName('msg')[i].childNodes[0];
-
 					$( "#textChat" ).append( '<p style="margin-left:50%;">'+element.data+'</p>' );
 		}
 		;
