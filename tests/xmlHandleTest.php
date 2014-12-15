@@ -127,10 +127,12 @@ class XMLHandlingTest extends PHPunit_Framework_Testcase {
 		$msg = $xml->getElementsByTagName("msg")->item(0);
 		$value = $msg->firstChild->nodeValue;
 		
-		$this->assertEquals($value, $msgPost);
+		$this->assertEquals($value, "<![CDATA[".$msgPost."]]>");
 		
 		$info = $xml->getElementsByTagName("info")->item(0);
 		$value = $info->firstChild->nodeValue;
+		
+
 		
 		$this->assertEquals($value, "- ".$msgPost." ".$date." :");
 		
