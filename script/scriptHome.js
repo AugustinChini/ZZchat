@@ -17,6 +17,7 @@ $(document).ready(function ()
 	$("#verticalBlock").animate({top: haut-50},1000, 'easeOutBounce');
 	$("#textA").focus();
 	setInterval(function () {clearOldMsg(); }, 50000);
+	setInterval(function () {testInactivity(); }, 300000);
 });
 
 $(window).resize(function()
@@ -63,6 +64,18 @@ function xmlSizeTest(xml) {
 		$.get( "deleteMsg.php");	
 	}
 	
+}
+
+function testInactivity()
+{
+	$.ajax({
+    type: "GET",
+    url: "autoLogOut.php",
+	error: function ()
+	{
+		alert("erreur server !!!");
+	},
+   });
 }
 
 function parse(type)

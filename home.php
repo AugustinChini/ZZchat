@@ -50,7 +50,7 @@
         </div>
 		
         <center>
-			<div id="chatRoom"><div id="title" style="margin:0px;">Salon de discussion :</div>
+			<div id="chatRoom"><div id="title" style="margin:0px;">Salon de discussion :</div></div>
 		</center>
 		
         <div id="textChat">
