@@ -26,7 +26,8 @@ $(window).resize(function()
 	$("#verticalBlock").css("top", haut-50); 
 });
 
-function showConv(name)
+/*---not done yet---*/ 
+/*function showConv(name)
 {
 	var content = document.getElementById("namePriv");
 	content.innerHTML = '<p><p><b>'+name+'</b></p></p>';
@@ -37,7 +38,7 @@ function kill()
 {
 	$("#conv1").fadeOut("slow");
 }
-
+*/
 function clearOldMsg()
 {
 	var formData = {type: "msgQuery"};
@@ -59,7 +60,6 @@ function xmlSizeTest(xml) {
 	var size = $(xml).find("size").text();
 	if(size > 50)
 	{
-		alert("suppr");
 		$.get( "deleteMsg.php");	
 	}
 	
