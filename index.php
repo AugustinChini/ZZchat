@@ -4,22 +4,37 @@
     <head>
         <meta charset="utf-8" />
         <title>Bienvenu sur le ZZchat</title>
+		
+		<!--CSS stylesheet-->
         <link rel="stylesheet" href="css/style.css" type="text/css" />
+		
+		<!--set favicon-->
         <link rel="shortcut icon" type="image/jpg" href="pictures/favicon.jpg" />
+		
+		<!--All JavaScript files include-->
         <script type="text/javascript" src="script/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="script/jquery-ui-1.10.0.custom.js"></script>
 		<script type="text/javascript" src="script/script.js"></script>
 		<script type="text/javascript" src="script/jquery.fittext.js"></script>
 		<script type="text/javascript" src="script/language.js"></script>
+		
     </head>
     <body>
-    <div id="lang"><img alt="English language" onclick="langChange('index', 'EN')" src="pictures/en.jpg" /> <img alt="Langage Francais" onclick="langChange('index', 'FR')"  src="pictures/fr.jpg" /></div>
+	
+	<!--Language preference-->
+    <div id="lang">
+		<img alt="English language" onclick="langChange('index', 'EN')" src="pictures/en.jpg" />
+		<img alt="Langage Francais" onclick="langChange('index', 'FR')"  src="pictures/fr.jpg" />
+	</div>
+	
+	<!--login Block area-->
     <div id="loginBlock">
     	<img alt="logo ZZChat" src="pictures/logo.png" />
     	<form id="loginFrom" name="form" action="processing.php?lang=FR" method="post">
 			<p>
             	<p><div id="logTxt">Pseudo  :</div>
                 	<?php
+						//---Fill the Inputs if Cookie are set---//
 						$cookie_name = "ZZchat";
 						if(isset($_COOKIE[$cookie_name])) {
 							$liste = explode(';',$_COOKIE[$cookie_name]);
@@ -32,6 +47,7 @@
                 
             </p>
             <p>
+				<!--'filière' selection area-->
     		   <div id="filTxt">Représentez votre filière :</div><br />
     		   <input type="radio" name="fil" value="f1" <?php if(isset($liste) && $liste[1] == "f1"){echo 'checked="checked"';} ?> id="f1id" > <label for="f1"/><img alt="logo F1" src="pictures/f1.jpg"/></label>
     		   <input type="radio" name="fil" value="f2" <?php if(isset($liste) && $liste[1] == "f2"){echo 'checked="checked"';} ?> id="f2id" /> <label for="f2"><img alt="logo F1" src="pictures/f2.jpg"/></label>

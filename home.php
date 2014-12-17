@@ -39,14 +39,22 @@
     <body>
 	
     	<div id="lang">
+		
+			<!--Language preference-->
 			<img alt="English language" onclick="langChange('home', 'EN')" src="pictures/en.jpg" />
 			<img alt="Langage Francais" onclick="langChange('home', 'FR')" src="pictures/fr.jpg" />
+			
+			<!--LogOut link-->
 			<a href="<?php echo "logOut.php?log=".$log ?>"><img alt="LogOut" src="pictures/logOut.png" /></a>
 		</div>
 		
         <div id="onlineTitle">ZZ en ligne :</div>
 		<div id="onlineBloc">
-			<center><div id="onlineTxt" ></div></center>
+			<center>
+				<div id="onlineTxt" >
+					<!--Users-->
+				</div>
+			</center>
         </div>
 		
         <center>
@@ -58,12 +66,14 @@
         </div>
 		
 		<center>
+			<!--textAera-->
 		  	<div id="textAera">
 		    	<textarea id="textA" onkeypress="if (event.keyCode == 13) send(<?php echo("'".$log."'") ?>);"></textarea>
 		  	</div>
         </center>
 		
 		<center>
+			<!--Smileys bar-->
 			<div id="verticalBlock">
 				<img  width="3.5%" src="pictures/smily.png" onclick="parse('smily')" />
 				<img  width="3.5%" src="pictures/wink.png" onclick="parse('wink')" />

@@ -1,4 +1,5 @@
-<?php 
+<?php
+	//---Create cookie---//
 	function cookie($log, $fil)
 	{
 		$cookie_name = "ZZchat";
