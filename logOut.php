@@ -1,10 +1,11 @@
 <?php
-	include("XMLHandling.php");
+	require_once("XMLHandling.php");
 	
 	if(isset($_GET["log"]))
 	{
 		$log = $_GET["log"];
-		logOut($log);
+		$XMLfile = 'SettingFiles/userSettings.xml';
+		logOut($log, $XMLfile);
 		header("location:index.php");
 	}
 	else
@@ -14,10 +15,10 @@
 	
 	
 	
-	function logOut($log)
+	function logOut($log, $XMLfile)
 	{
 		$i = 0;
-		$XMLfile = 'SettingFiles/userSettings.xml';
+		
 		if (file_exists($XMLfile))
 		{
 			

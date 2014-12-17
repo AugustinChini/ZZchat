@@ -1,6 +1,7 @@
 <?php
 include('AjaxAddMsg.php');
 class XMLHandlingTest extends PHPunit_Framework_Testcase {
+
 	public function resetFiles()
 	{
 		echo (PHP_EOL.' Reset test file.....');

@@ -1,12 +1,10 @@
 <?php
-	include("logOut.php");
+	require_once("logOut.php");
 
 	testInactivity();
 	
 	function testInactivity()
-	{	
-		$heure = date("i");
-		//$heure = 1;
+	{
 		$XMLfile = 'SettingFiles/userSettings.xml';
 		$xml = new DOMDocument("1.0");
 		$xml -> load($XMLfile);
@@ -20,10 +18,10 @@
 			$userValue = $user->firstChild->nodeValue;
 			$min = getMin($userValue);
 
-			if(($heure - $min) > 10)
+			if(timeLapse($min))
 			{
 				echo("logout : ".$userValue."<br/>");
-				logOut($userValue);
+				logOut($userValue, $XMLfile);
 			}
 		}
 	}
@@ -53,16 +51,22 @@
 		
 		$min = explode(":", $infoValue);
 
-		return addMin($min[1]);
+		return ($min[1]);
 	}
 	
-	function addMin($val)
+	function timeLapse($val)
 	{
-		if(($val + 10) >= 60)
+		$minutes = date("i");
+		$timeLapse = ($minutes - $val);
+		if($timeLapse < 0)
 		{
-			$val = $val - 60;
+			$res = 60 + $timeLapse;
+		}
+		else
+		{
+			$res = $timeLapse;
 		}
 		
-		return $val;
+		return ($res > 10);
 	}
 ?> 
